@@ -1,6 +1,8 @@
 import c302
 import sys
 
+from c302.importer import dynamic_import
+
 def setup(parameter_set, 
           generate=False,
           duration=1000, 
@@ -11,7 +13,7 @@ def setup(parameter_set,
           config_param_overrides={},
           verbose=True):
     
-    exec('from parameters_%s import ParameterisedModel'%parameter_set, globals())
+    ParameterisedModel = dynamic_import('c302.parameters_%s'%parameter_set, 'ParameterisedModel')
     params = ParameterisedModel()
     
     params.set_bioparameter("unphysiological_offset_current", "5pA", "Testing IClamp", "0")

@@ -94,7 +94,7 @@ if __name__ == "__main__":
     for i in range(min(maxn, len(refs_OWR))):
         #print("\n-----  Connection in OWR: %s"%refs[i])
         #print cm[refs[i]]
-        ref = refs_OWR[i]
+        ref = [k for k in refs_OWR][i]
         if ref in conn_map_USR:
             if conn_map_OWR[ref].number != conn_map_USR[ref].number:
                 print_("Mismatch: %s != %s"%(conn_map_OWR[ref],conn_map_USR[ref]))
@@ -112,7 +112,7 @@ if __name__ == "__main__":
     for i in range(min(maxn, len(refs_USR))):
         #print("\n-----  Connection in USR: %s"%refs[i])
         #print cm2[refs[i]]
-        ref = refs_USR[i]
+        ref = [k for k in refs_USR][i]
         if ref in conn_map_OWR:
             if conn_map_OWR[ref].number != conn_map_USR[ref].number:
                 print_("Mismatch: %s != %s"%(conn_map_OWR[ref],conn_map_USR[ref]))
